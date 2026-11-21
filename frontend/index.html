@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f0e7">
+  <title>CraftNest — Handmade, with heart</title>
+  <style>
+    :root{--cream:#f6f0e7;--paper:#fffdf9;--terracotta:#b85f43;--terracotta-dark:#91452f;--charcoal:#292825;--muted:#77736d;--line:#e9e0d5;--sage:#87947a;--shadow:0 16px 45px rgba(54,42,31,.09)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--charcoal);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,textarea{font:inherit}button{cursor:pointer}
+    .top-note{background:var(--charcoal);color:#f8f2e9;text-align:center;padding:9px 16px;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+    header{position:sticky;top:0;z-index:20;background:rgba(246,240,231,.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(41,40,37,.08)}
+    .nav{max-width:1180px;margin:auto;padding:17px 24px;display:flex;align-items:center;gap:28px}.brand{display:flex;align-items:center;gap:10px;font-family:Georgia,serif;font-size:27px;font-weight:700;letter-spacing:-1px;margin-right:auto}.brand-mark{width:34px;height:34px;border-radius:50% 50% 48% 12%;background:var(--terracotta);color:white;display:grid;place-items:center;font-size:17px;transform:rotate(-8deg)}
+    .nav-links{display:flex;align-items:center;gap:27px}.nav-links button,.nav-actions button{border:0;background:none;color:var(--charcoal);font-size:13px;font-weight:600;padding:8px 0}.nav-links button.active{color:var(--terracotta)}.nav-actions{display:flex;align-items:center;gap:18px}.cart-link{position:relative}.count{display:inline-grid;place-items:center;min-width:18px;height:18px;border-radius:20px;background:var(--terracotta);color:white;font-size:10px;margin-left:4px;padding:0 5px}.login-btn{background:var(--charcoal)!important;color:white!important;padding:11px 18px!important;border-radius:999px!important}
+    main{max-width:1180px;margin:auto;padding:0 24px 70px}.hero{margin:34px 0 66px;min-height:410px;border-radius:9px;background:linear-gradient(100deg,rgba(34,31,27,.75),rgba(34,31,27,.1)),linear-gradient(135deg,#b66d50,#d4a47e 48%,#e4c9a8);position:relative;overflow:hidden;display:flex;align-items:center;padding:clamp(30px,7vw,82px);color:white}.hero:after{content:"";position:absolute;right:8%;bottom:-75px;width:310px;height:390px;border-radius:48% 48% 12% 12%;background:linear-gradient(145deg,#d58d67,#9b5038);box-shadow:inset 20px 0 25px #f0bd8b55,0 20px 45px #3d211c55;transform:rotate(8deg)}.hero:before{content:"✿";position:absolute;right:16%;top:55px;font-size:100px;color:#f6e4ca88;z-index:1}.hero-copy{max-width:540px;position:relative;z-index:2}.eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:#f3d7c3}.hero h1{font-family:Georgia,serif;font-weight:500;font-size:clamp(42px,6vw,68px);line-height:1.02;letter-spacing:-2px;margin:18px 0}.hero p{max-width:420px;color:#f5e9df;line-height:1.7;font-size:15px}.primary{border:0;background:var(--terracotta);color:white;padding:14px 22px;border-radius:3px;font-weight:700;font-size:12px;letter-spacing:.04em;transition:.2s}.primary:hover{background:var(--terracotta-dark);transform:translateY(-1px)}.hero .primary{margin-top:16px;background:#f6f0e7;color:var(--charcoal)}
+    .section-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:24px}.section-head h2,.page-title{font-family:Georgia,serif;font-weight:500;font-size:37px;letter-spacing:-1px;margin:7px 0}.section-head p,.subtle{color:var(--muted);font-size:13px;margin:0}.kicker{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--terracotta);font-weight:800}
+    .product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px 20px}.product-card{min-width:0}.product-art{height:245px;border-radius:5px;position:relative;display:grid;place-items:center;overflow:hidden;background:var(--art-bg,#e7d7c6)}.product-art:before{content:"";position:absolute;width:160px;height:160px;border:1px solid #ffffff70;border-radius:50%}.product-art .emoji{font-size:94px;filter:drop-shadow(0 15px 12px #49342633);z-index:1;transition:transform .3s}.product-card:hover .emoji{transform:translateY(-5px) rotate(-3deg)}.discount{position:absolute;top:13px;left:13px;background:var(--terracotta);color:white;padding:6px 9px;font-size:10px;font-weight:800;letter-spacing:.04em;z-index:2}.product-info{padding:13px 1px}.product-info h3{font-family:Georgia,serif;font-size:19px;font-weight:500;margin:0 0 6px}.product-info p{font-size:12px;color:var(--muted);line-height:1.5;min-height:36px;margin:0 0 11px}.price-row{display:flex;align-items:center;gap:8px;margin-bottom:12px}.price{font-weight:800;font-size:14px}.old-price{font-size:12px;color:#9b958c;text-decoration:line-through}.add-btn{width:100%;background:transparent;border:1px solid #b9aa9a;color:var(--charcoal);padding:11px;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.add-btn:hover{background:var(--charcoal);color:white;border-color:var(--charcoal)}
+    .values{margin:75px 0 20px;padding:32px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:center}.value-item strong{display:block;font-family:Georgia,serif;font-size:18px;font-weight:500;margin:8px}.value-item span{font-size:12px;color:var(--muted)}.value-icon{font-size:23px}
+    .page{padding:54px 0 30px;min-height:60vh}.page-title{font-size:42px}.page-intro{color:var(--muted);font-size:14px;margin:8px 0 30px}.cart-layout{display:grid;grid-template-columns:1.5fr .8fr;gap:28px;align-items:start}.panel{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:24px}.cart-item{display:grid;grid-template-columns:90px 1fr auto;gap:16px;align-items:center;padding:17px 0;border-bottom:1px solid var(--line)}.cart-item:first-child{padding-top:0}.mini-art{width:90px;height:90px;border-radius:4px;display:grid;place-items:center;font-size:38px;background:var(--art-bg)}.cart-item h3{font:500 18px Georgia,serif;margin:0 0 5px}.cart-item small{color:var(--muted)}.qty{display:flex;align-items:center;gap:12px;margin-top:10px}.qty button{width:25px;height:25px;border:1px solid var(--line);background:white;border-radius:50%}.remove{border:0;background:none;color:var(--muted);font-size:11px;text-decoration:underline;margin-left:7px}.summary-line{display:flex;justify-content:space-between;font-size:13px;margin:13px 0;color:var(--muted)}.summary-line.total{font-size:19px;color:var(--charcoal);font-weight:800;border-top:1px solid var(--line);padding-top:17px;margin-top:18px}.saving{color:#65805c!important}.field{display:block;margin:14px 0}.field label{display:block;font-size:11px;font-weight:800;margin-bottom:7px;letter-spacing:.04em}.field input,.field textarea{width:100%;border:1px solid var(--line);background:#fffdfa;padding:12px 13px;border-radius:3px;outline:none;color:var(--charcoal);font-size:13px}.field input:focus,.field textarea:focus{border-color:var(--terracotta)}.field textarea{min-height:88px;resize:vertical}.full{width:100%;margin-top:13px}.empty{text-align:center;padding:60px 20px;background:var(--paper);border:1px dashed #d8cabb;border-radius:5px}.empty .big{font-size:45px}.empty h3{font:500 25px Georgia,serif;margin:12px}.empty p{color:var(--muted);font-size:13px}.profile-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:24px}.profile-name{font:500 25px Georgia,serif;margin:10px 0 4px}.order-card{padding:17px 0;border-bottom:1px solid var(--line)}.order-card:last-child{border:0}.order-top{display:flex;justify-content:space-between;gap:15px}.order-top strong{font-size:13px}.status{font-size:10px;background:#e8eee3;color:#52684a;padding:5px 8px;border-radius:20px}.order-card p{font-size:12px;color:var(--muted);margin:8px 0 0}
+    .modal-backdrop{position:fixed;inset:0;background:#171512a8;z-index:50;display:none;align-items:center;justify-content:center;padding:20px}.modal-backdrop.show{display:flex}.modal{width:min(440px,100%);background:var(--paper);padding:30px;border-radius:7px;position:relative;box-shadow:var(--shadow)}.close{position:absolute;right:18px;top:15px;border:0;background:none;font-size:23px;color:var(--muted)}.modal h2{font:500 31px Georgia,serif;margin:0 0 7px}.tabs{display:flex;gap:20px;border-bottom:1px solid var(--line);margin:20px 0}.tabs button{border:0;background:none;padding:10px 0;font-size:12px;color:var(--muted);font-weight:700}.tabs button.selected{color:var(--terracotta);border-bottom:2px solid var(--terracotta)}.switch-text{font-size:12px;color:var(--muted);text-align:center;margin-top:18px}.text-btn{border:0;background:none;color:var(--terracotta);font-weight:800}.toast-wrap{position:fixed;right:20px;bottom:20px;z-index:80;display:grid;gap:9px}.toast{background:var(--charcoal);color:white;padding:13px 17px;border-radius:4px;box-shadow:var(--shadow);font-size:12px;max-width:320px;animation:pop .2s ease}.toast.error{background:#8d3d31}.toast.success{background:#52694c}@keyframes pop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}footer{background:#292825;color:#e9e0d5;padding:35px 24px;text-align:center;font:16px Georgia,serif}footer small{display:block;font:11px system-ui;color:#aaa197;margin-top:8px}
+    @media(max-width:900px){.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.product-art{height:230px}.nav{gap:14px}.nav-links{gap:15px}.cart-layout{grid-template-columns:1fr}.profile-grid{grid-template-columns:1fr}}
+    @media(max-width:600px){.top-note{font-size:9px}.nav{padding:13px 16px;flex-wrap:wrap;gap:8px}.brand{font-size:23px}.nav-links{order:3;width:100%;justify-content:space-between;gap:8px;border-top:1px solid var(--line);padding-top:9px}.nav-links button{font-size:12px}.nav-actions{gap:12px}.nav-actions button{font-size:11px}.login-btn{padding:9px 12px!important}main{padding:0 16px 45px}.hero{margin:20px 0 45px;min-height:420px;padding:30px 24px;align-items:flex-start}.hero:after{right:-35px;bottom:-100px;width:220px;height:290px}.hero:before{right:13%;top:190px;font-size:65px}.hero h1{font-size:48px}.hero p{font-size:13px;max-width:280px}.section-head{align-items:start;flex-direction:column;gap:8px}.section-head h2{font-size:32px}.product-grid{gap:22px 12px}.product-art{height:175px}.product-art .emoji{font-size:68px}.product-info h3{font-size:17px}.product-info p{font-size:11px;min-height:48px}.values{grid-template-columns:1fr;gap:25px;margin-top:50px}.page{padding-top:36px}.page-title{font-size:36px}.panel{padding:18px}.cart-item{grid-template-columns:68px 1fr auto;gap:10px}.mini-art{width:68px;height:75px;font-size:30px}.cart-item h3{font-size:16px}.cart-item .price{font-size:12px}.cart-item .remove{display:block;margin:6px 0 0}.cart-item>div:last-child{text-align:right}}
+    @media(max-width:360px){.product-grid{grid-template-columns:1fr}.product-art{height:230px}}
+  </style>
+</head>
+<body>
+  <div class="top-note">Thoughtfully made · Naturally beautiful · Made to be loved</div>
+  <header>
+    <nav class="nav" aria-label="Main navigation">
+      <div class="brand"><span class="brand-mark">✿</span>CraftNest</div>
+      <div class="nav-links">
+        <button class="active" data-view="home">Home</button>
+        <button data-view="cart" class="cart-link">Cart <span class="count" id="cartCount">0</span></button>
+        <button data-view="profile">Profile</button>
+      </div>
+      <div class="nav-actions"><button id="authNav" class="login-btn">Login</button></div>
+    </nav>
+  </header>
+  <main id="app"></main>
+  <footer>Made slowly. Loved forever. <small>© <span id="year"></span> CraftNest · A little home for handmade things.</small></footer>
+  <div class="modal-backdrop" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+    <div class="modal">
+      <button class="close" id="closeModal" aria-label="Close">×</button>
+      <div class="kicker">Welcome to CraftNest</div><h2 id="authTitle">Good things start here.</h2>
+      <p class="subtle">Sign in or create an account to keep your handmade finds close.</p>
+      <div class="tabs"><button class="selected" data-auth-tab="login">Login</button><button data-auth-tab="register">Create account</button></div>
+      <form id="authForm">
+        <div class="field" id="nameField" hidden><label for="authName">YOUR NAME</label><input id="authName" name="name" autocomplete="name" placeholder="e.g. Aanya"></div>
+        <div class="field"><label for="authEmail">EMAIL ADDRESS</label><input id="authEmail" name="email" type="email" autocomplete="email" required placeholder="you@example.com"></div>
+        <div class="field"><label for="authPassword">PASSWORD</label><input id="authPassword" name="password" type="password" autocomplete="current-password" minlength="6" required placeholder="At least 6 characters"></div>
+        <button class="primary full" id="authSubmit" type="submit">Login</button>
+      </form>
+      <p class="switch-text" id="authSwitch">New to CraftNest? <button class="text-btn" data-auth-tab="register">Create an account</button></p>
+    </div>
+  </div>
+  <div class="toast-wrap" id="toasts" aria-live="polite"></div>
+<script>
+/* Set this to your deployed API origin, e.g. https://api.example.com.
+   Leave as the empty string to use the demo-friendly local-only mode. */
+const API_BASE_URL = "https://YOUR_API_BASE_URL";
+const API = {
+  login: "/login", register: "/register",
+  orders: "/orders", profile
+};
+const products = [
+  {id:1,name:"Sculpted Terracotta Planter",desc:"A sun-kissed home for your favourite little greens.",emoji:"🪴",bg:"#e9d1bd",price:1299,sale:999},
+  {id:2,name:"Macrame Moon Wall Hanging",desc:"Hand-knotted cotton with a soft, easygoing feel.",emoji:"🧶",bg:"#e8dfcc",price:1899,sale:1499},
+  {id:3,name:"Wildflower Soy Candle",desc:"A gentle botanical scent poured in a reusable jar.",emoji:"🕯️",bg:"#e8d9c8",price:899,sale:699},
+  {id:4,name:"Hand-painted Sunday Mug",desc:"A one-of-a-kind cup for slow morning rituals.",emoji:"☕",bg:"#d8e0d2",price:1099,sale:849},
+  {id:5,name:"Woven Jute Basket",desc:"A tactile catch-all, woven from natural jute fibres.",emoji:"🧺",bg:"#e6d8b9",price:1499,sale:1199},
+  {id:6,name:"Pressed Flower Frame",desc:"Real dried blooms, carefully arranged and preserved.",emoji:"🖼️",bg:"#eadbd4",price:1599,sale:1249},
+  {id:7,name:"Hand-thrown Clay Vase",desc:"Organic curves and a beautifully imperfect finish.",emoji:"🏺",bg:"#d8c6b5",price:2199,sale:1799},
+  {id:8,name:"Patchwork Cushion Cover",desc:"A cheerful mix of fabric, texture and artisan skill.",emoji:"🪡",bg:"#e6cfc5",price:1399,sale:1099}
+];
+const money = n => "₹" + Number(n).toLocaleString("en-IN");
+const getCart = () => JSON.parse(localStorage.getItem("craftnest_cart") || "[]");
+const saveCart = cart => { localStorage.setItem("craftnest_cart", JSON.stringify(cart)); updateCount(); };
+const getUser = () => JSON.parse(localStorage.getItem("craftnest_user") || "null");
+const token = () => localStorage.getItem("craftnest_token");
+let authMode = "login", currentView = "home";
+const app = document.getElementById("app");
+
+function toast(message,type="success"){
+  const el=document.createElement("div");el.className="toast "+type;el.textContent=message;
+  document.getElementById("toasts").appendChild(el);setTimeout(()=>el.remove(),3600);
+}
+function updateCount(){document.getElementById("cartCount").textContent=getCart().reduce((n,x)=>n+x.qty,0);}
+function productArt(p,small=false){return `<div class="${small?'mini-art':'product-art'}" style="--art-bg:${p.bg}"><span class="${small?'':'emoji'}">${p.emoji}</span></div>`;}
+function discount(p){return Math.round((1-p.sale/p.price)*100);}
+function renderHome(){
+  app.innerHTML=`<section class="hero"><div class="hero-copy"><div class="eyebrow">Objects with a little more soul</div><h1>Made by hand.<br>Made to stay.</h1><p>Discover thoughtful pieces crafted in small batches by makers who put care into every curve, knot and brushstroke.</p><button class="primary" onclick="document.getElementById('collection').scrollIntoView({behavior:'smooth'})">EXPLORE THE COLLECTION ↗</button></div></section>
+  <section id="collection"><div class="section-head"><div><div class="kicker">The good stuff</div><h2>Find your kind of handmade.</h2></div><p>Small-batch pieces, big-hearted stories.</p></div><div class="product-grid">${products.map(p=>`<article class="product-card">${productArt(p)}<span class="discount">${discount(p)}% OFF</span><div class="product-info"><h3>${p.name}</h3><p>${p.desc}</p><div class="price-row"><span class="price">${money(p.sale)}</span><span class="old-price">${money(p.price)}</span></div><button class="add-btn" onclick="addToCart(${p.id})">＋ Add to cart</button></div></article>`).join("")}</div></section>
+  <section class="values"><div class="value-item"><div class="value-icon">✧</div><strong>Made with intention</strong><span>Every piece has a maker and a story.</span></div><div class="value-item"><div class="value-icon">♧</div><strong>Thoughtful materials</strong><span>Natural textures, chosen with care.</span></div><div class="value-item"><div class="value-icon">♡</div><strong>Small-batch love</strong><span>Not mass-made. Made to mean more.</span></div></section>`;
+}
+function addToCart(id){
+  const cart=getCart(), item=cart.find(x=>x.id===id);
+  if(item)item.qty++;else cart.push({id,qty:1});
+  saveCart(cart);toast("Added to your basket — lovely choice!");
+}
+function renderCart(){
+  const cart=getCart();
+  if(!cart.length){app.innerHTML=`<section class="page"><div class="kicker">Your basket</div><h1 class="page-title">A little space for something lovely.</h1><div class="empty"><div class="big">🧺</div><h3>Your cart is waiting for its first treasure.</h3><p>Explore our handmade collection and find something that feels like you.</p><button class="primary" onclick="navigate('home')">EXPLORE THE SHOP</button></div></section>`;return;}
+  const rows=cart.map(x=>({...products.find(p=>p.id===x.id),qty:x.qty})).filter(x=>x.id);
+  const subtotal=rows.reduce((n,p)=>n+p.sale*p.qty,0),original=rows.reduce((n,p)=>n+p.price*p.qty,0);
+  app.innerHTML=`<section class="page"><div class="kicker">Your basket</div><h1 class="page-title">The pieces you picked.</h1><p class="page-intro">A few lovely things, all in one place.</p><div class="cart-layout"><div class="panel">${rows.map(p=>`<div class="cart-item">${productArt(p,true)}<div><h3>${p.name}</h3><small>${money(p.sale)} each</small><div class="qty"><button aria-label="Decrease quantity" onclick="changeQty(${p.id},-1)">−</button><strong>${p.qty}</strong><button aria-label="Increase quantity" onclick="changeQty(${p.id},1)">＋</button><button class="remove" onclick="removeItem(${p.id})">Remove</button></div></div><div class="price">${money(p.sale*p.qty)}</div></div>`).join("")}</div>
+  <aside class="panel"><div class="kicker">Order summary</div><h3 style="font:500 23px Georgia,serif;margin:8px 0 20px">Almost yours.</h3><div class="summary-line"><span>Original price</span><span>${money(original)}</span></div><div class="summary-line saving"><span>Your savings</span><strong>− ${money(original-subtotal)}</strong></div><div class="summary-line"><span>Delivery</span><span>Calculated at checkout</span></div><div class="summary-line total"><span>Subtotal</span><span>${money(subtotal)}</span></div>
+  <form id="checkoutForm"><div class="field"><label for="shipName">FULL NAME</label><input id="shipName" name="name" required value="${getUser()?.name||''}" placeholder="Name for delivery"></div><div class="field"><label for="shipPhone">PHONE NUMBER</label><input id="shipPhone" name="phone" required type="tel" placeholder="10-digit mobile number"></div><div class="field"><label for="shipAddress">SHIPPING ADDRESS</label><textarea id="shipAddress" name="address" required placeholder="House / street, area, city, state, PIN code"></textarea></div><button class="primary full" type="submit">PLACE ORDER · ${money(subtotal)}</button><p class="subtle" style="margin-top:12px;font-size:10px">You'll need to be logged in to submit your order.</p></form></aside></div></section>`;
+  document.getElementById("checkoutForm").addEventListener("submit",placeOrder);
+}
+function changeQty(id,delta){const cart=getCart(),item=cart.find(x=>x.id===id);if(item)item.qty+=delta;saveCart(cart.filter(x=>x.qty>0));renderCart();}
+function removeItem(id){saveCart(getCart().filter(x=>x.id!==id));renderCart();toast("Item removed from your basket.");}
+function navigate(view){currentView=view;document.querySelectorAll("[data-view]").forEach(b=>b.classList.toggle("active",b.dataset.view===view));if(view==="home")renderHome();if(view==="cart")renderCart();if(view==="profile")renderProfile();window.scrollTo({top:0,behavior:"smooth"});}
+async function apiRequest(path,options={}){
+  const base=API_BASE_URL.trim();
+  if(!base || base.includes("YOUR_API_BASE_URL")) throw new Error("API is not configured yet. Add your backend URL in the API_BASE_URL setting.");
+  const headers={"Content-Type":"application/json",...(options.headers||{})};
+  if(token())headers.Authorization=`Bearer ${token()}`;
+  const response=await fetch(base.replace(/\/$/,"")+path,{...options,headers});
+  let data={};try{data=await response.json();}catch(_){}
+  if(!response.ok)throw new Error(data.message||data.error||`Request failed (${response.status}).`);
+  return data;
+}
+function openAuth(mode="login"){setAuthMode(mode);document.getElementById("authModal").classList.add("show");}
+function closeAuth(){document.getElementById("authModal").classList.remove("show");}
+function setAuthMode(mode){
+  authMode=mode;document.getElementById("nameField").hidden=mode!=="register";
+  document.getElementById("authTitle").textContent=mode==="login"?"Good things start here.":"Join our little community.";
+  document.getElementById("authSubmit").textContent=mode==="login"?"LOGIN":"CREATE ACCOUNT";
+  document.querySelectorAll("[data-auth-tab]").forEach(b=>b.classList.toggle("selected",b.dataset.authTab===mode));
+  document.getElementById("authSwitch").innerHTML=mode==="login"?'New to CraftNest? <button class="text-btn" data-auth-tab="register">Create an account</button>':'Already have an account? <button class="text-btn" data-auth-tab="login">Login</button>';
+}
+async function submitAuth(e){
+  e.preventDefault();const form=new FormData(e.currentTarget),payload={email:form.get("email"),password:form.get("password")};
+  if(authMode==="register")payload.name=form.get("name");
+  const btn=document.getElementById("authSubmit");btn.disabled=true;btn.textContent="PLEASE WAIT…";
+  try{
+    const data=await apiRequest(authMode==="login"?API.login:API.register,{method:"POST",body:JSON.stringify(payload)});
+    const sessionToken=data.token||data.sessionToken||data.access_token;
+    const user=data.user||data.profile||{id:data.userId||data.id,name:payload.name||data.name,email:payload.email};
+    if(!sessionToken)throw new Error("The server response did not include a session token.");
+    localStorage.setItem("craftnest_token",sessionToken);localStorage.setItem("craftnest_user",JSON.stringify(user));
+    updateAuthNav();closeAuth();toast(authMode==="login"?"Welcome back!":"Your CraftNest account is ready!");if(currentView==="profile")renderProfile();
+  }catch(err){toast(err.message||"We couldn't sign you in. Please try again.","error");}
+  finally{btn.disabled=false;btn.textContent=authMode==="login"?"LOGIN":"CREATE ACCOUNT";}
+}
+function updateAuthNav(){
+  const user=getUser(),btn=document.getElementById("authNav");
+  btn.textContent=user?"Logout":"Login";btn.onclick=()=>{if(user){localStorage.removeItem("craftnest_token");localStorage.removeItem("craftnest_user");updateAuthNav();toast("You have been logged out.");if(currentView==="profile")renderProfile();}else openAuth("login");};
+}
+async function placeOrder(e){
+  e.preventDefault();if(!token()){toast("Please log in before placing your order.","error");openAuth("login");return;}
+  const form=new FormData(e.currentTarget),cart=getCart(),items=cart.map(x=>({productId:x.id,quantity:x.qty}));
+  const payload={items,shippingAddress:{name:form.get("name"),phone:form.get("phone"),address:form.get("address")},subtotal:cart.reduce((n,x)=>n+products.find(p=>p.id===x.id).sale*x.qty,0)};
+  const btn=e.currentTarget.querySelector("button[type=submit]");btn.disabled=true;btn.textContent="PLACING ORDER…";
+  try{
+    const data=await apiRequest(API.orders,{method:"POST",body:JSON.stringify(payload)});
+    localStorage.removeItem("craftnest_cart");updateCount();toast("Your order has been placed. Thank you!");navigate("profile");
+  }catch(err){toast(err.message||"We couldn't complete your order. Please try again.","error");}
+  finally{btn.disabled=false;btn.textContent="PLACE ORDER";}
+}
+async function renderProfile(){
+  const user=getUser();
+  if(!user||!token()){app.innerHTML=`<section class="page"><div class="kicker">Your corner</div><h1 class="page-title">Your CraftNest story.</h1><div class="empty"><div class="big">♡</div><h3>Log in to see your profile.</h3><p>Your details and past orders will be waiting here.</p><button class="primary" onclick="openAuth('login')">LOGIN / CREATE ACCOUNT</button></div></section>`;return;}
+  app.innerHTML=`<section class="page"><div class="kicker">Your corner</div><h1 class="page-title">Hello, ${escapeHTML(user.name||"maker")}.</h1><p class="page-intro">A home for your details and all the lovely things you've ordered.</p><div class="profile-grid"><div class="panel"><div class="kicker">Account details</div><div style="font-size:38px;margin:18px 0 8px">☺</div><div class="profile-name">${escapeHTML(user.name||"CraftNest customer")}</div><p class="subtle">${escapeHTML(user.email||"")}</p><p class="subtle" style="margin-top:20px">Member ID: ${escapeHTML(String(user.id||user.userId||"—"))}</p></div><div class="panel"><div class="kicker">A little history</div><h3 style="font:500 24px Georgia,serif;margin:8px 0 15px">Your past orders</h3><div id="ordersList" class="subtle">Loading your orders…</div></div></div></section>`;
+  try{
+    const data=await apiRequest(API.orders,{method:"GET"}),orders=Array.isArray(data)?data:(data.orders||data.items||[]);
+    const target=document.getElementById("ordersList");if(!target)return;
+    target.innerHTML=orders.length?orders.map(o=>`<div class="order-card"><div class="order-top"><strong>Order #${escapeHTML(String(o.id||o.orderId||"—"))}</strong><span class="status">${escapeHTML(o.status||"Received")}</span></div><p>${escapeHTML(o.createdAt||o.date||"Date unavailable")} · ${money(o.total||o.subtotal||0)}</p></div>`).join(""):`<p>No orders just yet. Your first handmade find is waiting.</p>`;
+  }catch(err){const target=document.getElementById("ordersList");if(target)target.textContent=err.message||"We couldn't load your orders right now.";}
+}
+function escapeHTML(value){return String(value).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+document.querySelectorAll("[data-view]").forEach(b=>b.addEventListener("click",()=>navigate(b.dataset.view)));
+document.getElementById("authNav").addEventListener("click",()=>openAuth("login"));
+document.getElementById("closeModal").addEventListener("click",closeAuth);
+document.getElementById("authModal").addEventListener("click",e=>{if(e.target.id==="authModal")closeAuth();});
+document.getElementById("authForm").addEventListener("submit",submitAuth);
+document.addEventListener("click",e=>{const tab=e.target.closest("[data-auth-tab]");if(tab)setAuthMode(tab.dataset.authTab);});
+document.getElementById("year").textContent=new Date().getFullYear();
+updateCount();updateAuthNav();renderHome();
+</script>
+</body>
+</html>
